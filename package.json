@@ -4,10 +4,15 @@
   "private": true,
   "dependencies": {
     "react": "^16.4.0",
+    "react-autosuggest": "^9.3.4",
+    "react-cookie": "^2.1.5",
     "react-dom": "^16.4.0",
+    "react-predictive-input": "^1.2.5",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "spotify-web-api-js": "^0.24.0"
+    "react-search-bar": "^2.2.0",
+    "spotify-web-api-js": "^0.24.0",
+    "universal-cookie": "^2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

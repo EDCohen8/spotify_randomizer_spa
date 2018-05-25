@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Spotify from 'spotify-web-api-js';
+import Cookies from 'universal-cookie';
 
 const spotifyWeb = new Spotify();
 
@@ -9,6 +10,7 @@ class Home extends Component {
     constructor(){
         super();
         const params = this.getHashParams();
+
         console.log(params["/access_token"])
         console.log(params)
         this.state = {
@@ -17,21 +19,22 @@ class Home extends Component {
                 name: 'Not Checked',
                 image: ''
             },
-            genres: {
-                availableGenres: 'None'
-            },
+
             tracks: '',
             seed_genres: 'classical',
             target_popularity: 0
         }
 
         if(this.state.loggedIn){
+            let auth_token = params["/access_token"]
             console.log("Success")
-            spotifyWeb.setAccessToken(params["/access_token"])
+            console.log("Creating Cookies")
+            // get cookies with cookies.get("access_token")
+            const cookies = new Cookies()
+            cookies.set("access_token", auth_token, { path: '/' })
+            spotifyWeb.setAccessToken(cookies.get("access_token"))
         }
-        else{
-            console.log("Failure")
-        }
+
     }
     getHashParams() {
         var hashParams = {};
@@ -54,8 +57,6 @@ class Home extends Component {
                     image: response.item.album.images[0].url
                 }
             }))
-        this.getSeeds()
-        console.log(this.state.genres.availableGenres)
     }
 
     generateSong(){
@@ -67,22 +68,6 @@ class Home extends Component {
             this.setState({
                 tracks: response.tracks
             }))
-    }
-
-
-    // Test to make sure that it has every genre from
-    // https://beta.developer.spotify.com/console/get-available-genre-seeds/
-    getSeeds(){
-        spotifyWeb.getAvailableGenreSeeds().then((response) =>
-            this.setState({
-                genres:{
-                    availableGenres: response.genres
-                }
-            }))
-    }
-
-    getState(){
-        return this.state
     }
 
     change = e => {

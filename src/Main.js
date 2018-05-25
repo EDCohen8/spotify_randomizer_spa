@@ -8,6 +8,7 @@ import Home from "./Home";
 import GenreSearch from "./GenreSearch";
 import DataVisualization from "./DataVisualization";
 
+
 class Main extends Component {
     render() {
         return (
