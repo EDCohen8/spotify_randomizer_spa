@@ -10,8 +10,6 @@ const cookies = new Cookies();
 
 spotifyWeb.setAccessToken(cookies.get("access_token"));
 
-//const spotifyGenres = getSeeds();
-
 var spotifyGenres = []
 
 function getSeeds(){
@@ -29,6 +27,7 @@ const getSuggestions = input => {
         console.log("LIST OF GENRES IS UNDEFINED");
         return -1
     }
+
     else{
         let inputLower = input.toLowerCase();
         let inputLength = inputLower.length;
@@ -94,14 +93,14 @@ class GenreSearch extends Component {
                 <button onClick={() => this.getSeeds()}>
                     Get Available Seeds
                 </button>
-                <Autosuggest
-                    suggestions={suggestions}
-                    onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                    onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                    getSuggestionValue={getSuggestionValue}
-                    renderSuggestion={renderSuggestion}
-                    inputProps={inputProps}
-                />
+                    <Autosuggest
+                        suggestions={suggestions}
+                        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                        getSuggestionValue={getSuggestionValue}
+                        renderSuggestion={renderSuggestion}
+                        inputProps={inputProps}
+                    />
             </div>
         );
     }
