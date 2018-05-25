@@ -9,9 +9,10 @@ class Home extends Component {
     constructor(){
         super();
         const params = this.getHashParams();
+        console.log(params["/access_token"])
         console.log(params)
         this.state = {
-            loggedIn: params.access_token ? true : false,
+            loggedIn: params["/access_token"] ? true : false,
             nowPlaying: {
                 name: 'Not Checked',
                 image: ''
@@ -24,9 +25,9 @@ class Home extends Component {
             target_popularity: 0
         }
 
-        if(params.access_token){
+        if(this.state.loggedIn){
             console.log("Success")
-            spotifyWeb.setAccessToken(params.access_token)
+            spotifyWeb.setAccessToken(params["/access_token"])
         }
         else{
             console.log("Failure")
