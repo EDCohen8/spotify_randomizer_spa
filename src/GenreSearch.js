@@ -10,7 +10,7 @@ const cookies = new Cookies();
 
 spotifyWeb.setAccessToken(cookies.get("access_token"));
 
-var spotifyGenres = []
+let spotifyGenres = [];
 
 function getSeeds(){
 
@@ -28,6 +28,7 @@ const getSuggestions = input => {
         return -1
     }
 
+
     else{
         let inputLower = input.toLowerCase();
         let inputLength = inputLower.length;
@@ -39,25 +40,27 @@ const getSuggestions = input => {
         console.log(possibleGenres);
         return possibleGenres
     }
+};
+
+function renderSuggestion(suggestion) {
+    return (
+        <span>{suggestion.valueOf()}</span>
+    );
 }
 
-const renderSuggestion = suggestion => (
-    <div>
-        {suggestion.valueOf()}
-    </div>
-);
 
 class GenreSearch extends Component {
 
     constructor(){
-        super()
+        super();
 
         this.state = {
             genres: {
                 availableGenres: ''
             },
             value: '',
-            suggestions: []
+            suggestions: [],
+            chosenGenres: []
         }
 
     }
@@ -80,6 +83,30 @@ class GenreSearch extends Component {
         });
     };
 
+    onSuggestionSelected = ({ suggestion, method}) => {
+        if(method === 'click' || method === 'enter') {
+            console.log(suggestion.valueOf());
+            if (spotifyGenres.length === 5) {
+                console.log("Already picked 5 genres")
+            }
+            else if (spotifyGenres.includes(suggestion.valueOf())) {
+                if (this.state.chosenGenres.includes(suggestion.valueOf())) {
+                    console.log("THIS GENRE ALREADY BEEN CHOSEN")
+                }
+                else {
+                    this.state.chosenGenres.push(suggestion.valueOf());
+                    console.log(suggestion.valueOf() + " is added to the list")
+                }
+
+            }
+            else {
+                console.log("invalid genre")
+            }
+            console.log(this.state.chosenGenres)
+        }
+    };
+
+
     render() {
         const { value, suggestions } = this.state;
         const inputProps = {
@@ -90,13 +117,11 @@ class GenreSearch extends Component {
         return (
             <div>
                 <h2>GenreSearch</h2>
-                <button onClick={() => this.getSeeds()}>
-                    Get Available Seeds
-                </button>
                     <Autosuggest
                         suggestions={suggestions}
                         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                        onSuggestionHighlighted={this.onSuggestionSelected}
                         getSuggestionValue={getSuggestionValue}
                         renderSuggestion={renderSuggestion}
                         inputProps={inputProps}
