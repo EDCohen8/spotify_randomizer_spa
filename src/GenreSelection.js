@@ -5,6 +5,7 @@ import Spotify from "spotify-web-api-js";
 
 const spotifyWeb = new Spotify();
 const cookies = new Cookies();
+const genreSet = new Set();
 
 spotifyWeb.setAccessToken(cookies.get("access_token"));
 
@@ -14,10 +15,26 @@ class GenreSelection extends Component {
         this.state = {
             spotifyGenres: [],
             searchTerm: '',
-            currentlyDisplayed: []
+            currentlyDisplayed: [],
+            genres: [],
+            target_popularity: 0,
+            tracks: '',
         }
         this.getSeeds()
         this.updateGenres = this.updateGenres.bind(this);
+    }
+
+    generateSong(){
+        spotifyWeb.getRecommendations(({
+            limit: 1,
+            seed_genres: this.state.genres.toString(),
+            target_popularity: this.state.target_popularity
+        })).then((response) =>
+            this.setState({
+                tracks: response.tracks
+            }))
+
+        console.log(this.state.tracks)
     }
 
 //test
@@ -34,11 +51,21 @@ class GenreSelection extends Component {
 
     onSubmit(genre){
         console.log(genre + " has been pressed");
+        if(this.state.genres.length < 5 && !genreSet.has(genre)) {
+            this.state.genres.push(genre);
+            genreSet.add(genre)
+        }
+        else{
+            console.log("Max number of genres chosen")
+        }
+        console.log(this.state.genres)
+        this.generateSong()
         return genre
     }
 
     updateGenres(event) {
         this.setState({searchTerm: event.target.value}, ()=> {this.filterGenres()})
+        console.log(this.state)
     }
 
     filterGenres() {
@@ -49,7 +76,9 @@ class GenreSelection extends Component {
             possibleGenres = this.state.spotifyGenres.filter(
                 gen => gen.slice(0, inputLength).toLowerCase() === inputLower)
         }
-        this.state.currentlyDisplayed = possibleGenres
+        this.setState({
+            currentlyDisplayed:  possibleGenres
+        });
     }
 
     renderButtons() {
