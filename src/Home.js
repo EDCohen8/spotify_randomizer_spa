@@ -11,8 +11,6 @@ class Home extends Component {
         super();
         const params = this.getHashParams();
 
-        console.log(params["/access_token"])
-        console.log(params)
         this.state = {
             loggedIn: params["/access_token"] ? true : false,
             nowPlaying: {
@@ -26,9 +24,6 @@ class Home extends Component {
             genres: {
                 availableGenres: ''
             },
-            value: '',
-            suggestions: [],
-            chosenGenres: []
         }
 
         if(this.state.loggedIn){

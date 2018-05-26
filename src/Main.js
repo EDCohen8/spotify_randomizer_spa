@@ -7,6 +7,7 @@ import {
 import Home from "./Home";
 import GenreSearch from "./GenreSearch";
 import DataVisualization from "./DataVisualization";
+import GenreSelection from "./GenreSelection";
 
 
 class Main extends Component {
@@ -19,11 +20,13 @@ class Main extends Component {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/genreSearch">Genre Search</NavLink></li>
                     <li><NavLink to="/dataVisualization">Data Visualization</NavLink></li>
+                    <li><NavLink to="/genreSelection">Genre Selection</NavLink></li>
                 </ul>
                 <div className="content">
                     <Route path="/" component={Home}/>
                     <Route path="/genreSearch" component={GenreSearch}/>
                     <Route path="/dataVisualization" component={DataVisualization}/>
+                    <Route path="/genreSelection" component={GenreSelection}/>
                 </div>
             </div>
             </HashRouter>

@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-autosuggest": "^9.3.4",
+    "react-bootstrap": "^0.32.1",
     "react-cookie": "^2.1.5",
     "react-dom": "^16.4.0",
     "react-predictive-input": "^1.2.5",
