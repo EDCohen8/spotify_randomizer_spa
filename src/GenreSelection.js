@@ -38,9 +38,7 @@ class GenreSelection extends Component {
     }
 
     updateGenres(event) {
-        this.setState({searchTerm: event.target.value})
-
-        this.filterGenres()
+        this.setState({searchTerm: event.target.value}, ()=> {this.filterGenres()})
     }
 
     filterGenres() {
@@ -52,7 +50,6 @@ class GenreSelection extends Component {
                 gen => gen.slice(0, inputLength).toLowerCase() === inputLower)
         }
         this.state.currentlyDisplayed = possibleGenres
-        this.forceUpdate()
     }
 
     renderButtons() {
