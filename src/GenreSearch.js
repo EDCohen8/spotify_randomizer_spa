@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Cookies from 'universal-cookie';
 import Spotify from "spotify-web-api-js";
 import Autosuggest from 'react-autosuggest';
+import Home from './Home';
 
+
+const home = new Home();
 const spotifyWeb = new Spotify();
 
 const getSuggestionValue = suggestion => suggestion.name;
@@ -45,6 +48,7 @@ const getSuggestions = input => {
 function renderSuggestion(suggestion) {
     return (
         <span>{suggestion.valueOf()}</span>
+
     );
 }
 
@@ -69,6 +73,7 @@ class GenreSearch extends Component {
         this.setState({
             value: newValue
         });
+        console.log( "value: " + newValue)
     };
 
     onSuggestionsFetchRequested = ({ value }) => {
@@ -85,38 +90,43 @@ class GenreSearch extends Component {
 
     onSuggestionSelected = ({ suggestion, method}) => {
         if(method === 'click' || method === 'enter') {
-            console.log(suggestion.valueOf());
+            console.log( "select: " + this.inputProps + method + suggestion.value);
             if (spotifyGenres.length === 5) {
                 console.log("Already picked 5 genres")
             }
-            else if (spotifyGenres.includes(suggestion.valueOf())) {
-                if (this.state.chosenGenres.includes(suggestion.valueOf())) {
+            else if (spotifyGenres.includes(suggestion.value)) {
+                if (this.state.chosenGenres.includes(suggestion.value)) {
                     console.log("THIS GENRE ALREADY BEEN CHOSEN")
                 }
                 else {
-                    this.state.chosenGenres.push(suggestion.valueOf());
-                    console.log(suggestion.valueOf() + " is added to the list")
+                    this.state.chosenGenres.push(suggestion.value);
+                    console.log(suggestion.value + " is added to the list")
                 }
 
             }
             else {
                 console.log("invalid genre")
             }
-            console.log(this.state.chosenGenres)
+            console.log(" state Select " + this.state.chosenGenres)
         }
     };
 
-
+    getState(){
+        return this.state();
+    }
     render() {
-        const { value, suggestions } = this.state;
+        const { value, suggestions, chosenGenres } = this.state;
         const inputProps = {
             placeholder: 'Type a genre',
             value,
+            chosenGenres,
             onChange: this.onChange
         };
         return (
             <div>
                 <h2>GenreSearch</h2>
+                <button onClick={ () => console.log("but " +  value + " " + suggestions + " " + inputProps)}>
+                </button>
                     <Autosuggest
                         suggestions={suggestions}
                         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}

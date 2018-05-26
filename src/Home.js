@@ -22,7 +22,13 @@ class Home extends Component {
 
             tracks: '',
             seed_genres: 'classical',
-            target_popularity: 0
+            target_popularity: 0,
+            genres: {
+                availableGenres: ''
+            },
+            value: '',
+            suggestions: [],
+            chosenGenres: []
         }
 
         if(this.state.loggedIn){
@@ -46,6 +52,10 @@ class Home extends Component {
             e = r.exec(q);
         }
         return hashParams;
+    }
+
+    getState(){
+        return this.state;
     }
 
 
