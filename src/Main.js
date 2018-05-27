@@ -8,6 +8,7 @@ import Home from "./Home";
 import GenreSearch from "./GenreSearch";
 import DataVisualization from "./DataVisualization";
 import GenreSelection from "./GenreSelection";
+import SongPage from "./SongPage"
 import NavBar from "./StyleComponents/NavBar"
 
 
@@ -22,12 +23,15 @@ class Main extends Component {
                     <NavBar><NavLink to="/genreSearch">Genre Search</NavLink></NavBar>
                     <NavBar><NavLink to="/dataVisualization">Data Visualization</NavLink></NavBar>
                     <NavBar><NavLink to="/genreSelection">Genre Selection</NavLink></NavBar>
+                    <NavBar><NavLink to="/songPage">Song</NavLink></NavBar>
                 </ul>
                 <div className="content">
                     <Route path="/home" component={Home}/>
                     <Route path="/genreSearch" component={GenreSearch}/>
                     <Route path="/dataVisualization" component={DataVisualization}/>
                     <Route path="/genreSelection" component={GenreSelection}/>
+                    <Route path="/songPage" component={SongPage}/>
+
                 </div>
             </div>
             </HashRouter>

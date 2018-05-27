@@ -26,17 +26,10 @@ class GenreSelection extends Component {
         this.updateGenres = this.updateGenres.bind(this);
     }
 
-    generateSong(){
-        spotifyWeb.getRecommendations(({
-            limit: 1,
-            seed_genres: this.state.genres.toString(),
-            target_popularity: this.state.target_popularity
-        })).then((response) =>
-            this.setState({
-                tracks: response.tracks
-            }))
 
-        console.log(this.state.tracks)
+
+    getState(){
+        return this.state;
     }
 
 //test
@@ -51,6 +44,8 @@ class GenreSelection extends Component {
         });
     }
 
+
+
     onSubmit(genre){
         console.log(genre + " has been pressed");
         if(this.state.genres.length < 5 && !genreSet.has(genre)) {
@@ -61,7 +56,7 @@ class GenreSelection extends Component {
             console.log("Max number of genres chosen")
         }
         console.log(this.state.genres)
-        this.generateSong()
+
         return genre
     }
 
