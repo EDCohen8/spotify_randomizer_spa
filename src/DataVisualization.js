@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {Grid} from "react-bootstrap"
 class DataVisualization extends Component {
     constructor(){
         super()
@@ -8,7 +8,9 @@ class DataVisualization extends Component {
     render() {
         return (
             <div>
+                <Grid>
                 <h2>Data Visualization</h2>
+                </Grid>
             </div>
         );
     }
