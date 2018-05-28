@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Cookies from 'universal-cookie';
 import Spotify from "spotify-web-api-js";
 import GenreButton from './StyleComponents/GenreButton'
-import GenreSearchBar from './StyleComponents/GenreSearchBar'
+import GenreSearchBar from './StyleComponents/GenreSearchBar';
+import * as global from './globals';
 import {Grid, Col, Button} from "react-bootstrap"
 
 const spotifyWeb = new Spotify();
@@ -21,7 +22,7 @@ class GenreSelection extends Component {
             currentlyDisplayed: [],
             genres: [],
             target_popularity: 0,
-            tracks: '',
+            tracks: ''
         }
         this.getSeeds()
         this.updateGenres = this.updateGenres.bind(this);
@@ -45,6 +46,39 @@ class GenreSelection extends Component {
         });
     }
 
+    getSongUrl(){
+        var track = JSON.stringify(this.state.tracks);
+        var id = "https://open.spotify.com/track/"
+        var index = track.search(id)
+        var url = ""
+        var i = id.length
+        while(i !== 53){
+            url += track[index+i++]
+
+        }
+        console.log(track)
+        console.log(index)
+        console.log("url " + url)
+        console.log(this.state.tracks)
+        this.setState({
+            url: "https://open.spotify.com/embed/track/" + url.toString()
+        })
+        global.addTrack(this.state.url)
+        return url;
+    }
+    generateSong(){
+        spotifyWeb.getRecommendations(({
+            limit: 1,
+            market: 'US',
+            seed_genres: this.state.genres.toString(),
+            target_popularity: this.state.target_popularity
+        })).then((response) =>
+            this.setState({
+                tracks: response.tracks
+            }))
+
+        console.log(this.state.tracks)
+    }
 
 
     onSubmit(genre){
@@ -52,12 +86,14 @@ class GenreSelection extends Component {
         if(this.state.genres.length < 5 && !genreSet.has(genre)) {
             this.state.genres.push(genre);
             genreSet.add(genre)
+            global.addGenre(genre)
         }
         else{
             console.log("Max number of genres chosen")
         }
         console.log(this.state.genres)
-
+        this.generateSong()
+        this.getSongUrl()
         return genre
     }
 
@@ -100,6 +136,7 @@ class GenreSelection extends Component {
                     the album cover, and the buttons next song, pause, add to playlist,
                     and choose another genre (it will take you back to the genre page)</p>
                 </Col>
+                    <a href="http://localhost:3000/#/songPage">Generate Song</a>
                 <Col md={5}>
                 <form>
                     <GenreSearchBar>
