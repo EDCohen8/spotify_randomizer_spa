@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Cookies from "universal-cookie";
-
+import {Button, Grid} from "react-bootstrap"
 class Login extends Component {
 
     constructor(){
@@ -31,9 +31,11 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <Grid>
                 <a href ='http://localhost:8888'>
-                    <button>Login With Spotify</button>
+                    <Button bsStyle = "primary" >Login With Spotify</Button>
                 </a>
+                </Grid>
             </div>
         );
     }

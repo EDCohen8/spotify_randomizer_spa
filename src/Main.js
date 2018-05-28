@@ -8,22 +8,16 @@ import Home from "./Home";
 import DataVisualization from "./DataVisualization";
 import GenreSelection from "./GenreSelection";
 import SongPage from "./SongPage"
-import NavBar from "./StyleComponents/NavBar"
 import Login from "./Login"
+import NavBar from "./CustomNavbar"
 
 class Main extends Component {
     render() {
         return (
             <HashRouter>
             <div>
-                <h1>Spotify Random Song SPA</h1>
-                <ul className="header">
-                    <NavBar><NavLink to="/">LOGIN(TEMP)</NavLink></NavBar>
-                    <NavBar><NavLink to="/home">Home</NavLink></NavBar>
-                    <NavBar><NavLink to="/dataVisualization">Data Visualization</NavLink></NavBar>
-                    <NavBar><NavLink to="/genreSelection">Genre Selection</NavLink></NavBar>
-                    <NavBar><NavLink to="/songPage">Song</NavLink></NavBar>
-                </ul>
+                <h1 class="text-center text-success"> <strong>Spotify Random Song SPA </strong></h1>
+                <NavBar />
                 <div className="content">
                     <Route path="/" component={Login}/>
                     <Route path="/home" component={Home}/>
