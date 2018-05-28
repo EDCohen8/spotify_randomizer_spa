@@ -1,5 +1,6 @@
 export var genres = [];
 export var url = '';
+export var artist = ''
 
 export function addGenre(newValue) {
 
@@ -15,4 +16,8 @@ export function removeGenre(value){
 
 export function addTrack(newValue){
     url = newValue
+}
+
+export function addArtist(a){
+    artist = a
 }

@@ -22,7 +22,8 @@ class GenreSelection extends Component {
             currentlyDisplayed: [],
             genres: [],
             target_popularity: 0,
-            tracks: ''
+            tracks: '',
+            artist: ''
         }
         this.getSeeds()
         this.updateGenres = this.updateGenres.bind(this);
@@ -66,6 +67,27 @@ class GenreSelection extends Component {
         global.addTrack(this.state.url)
         return url;
     }
+
+    getArtist(){
+        var song =JSON.stringify(this.state.tracks);
+        var temp = "https://open.spotify.com/artist/";
+        var index = song.search(temp);
+        var i =  temp.length;
+        var id = '';
+        while(i < temp.length + 22){
+             id += song[index + i++]
+        }
+        console.log("id " + id)
+        global.addArtist(id)
+        spotifyWeb.getArtistRelatedArtists(id).then((response) =>
+            this.setState({
+                artist: response.artists
+            })
+
+        console.log(this.state.artist)
+        return id;
+
+    }
     generateSong(){
         spotifyWeb.getRecommendations(({
             limit: 1,
@@ -94,6 +116,7 @@ class GenreSelection extends Component {
         console.log(this.state.genres)
         this.generateSong()
         this.getSongUrl()
+        this.getArtist()
         return genre
     }
 
