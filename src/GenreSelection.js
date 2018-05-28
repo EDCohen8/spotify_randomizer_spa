@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import Spotify from "spotify-web-api-js";
 import GenreButton from './StyleComponents/GenreButton'
 import GenreSearchBar from './StyleComponents/GenreSearchBar'
-import {Grid, Button} from "react-bootstrap";
+import {Grid, Col, Button} from "react-bootstrap";
 
 const spotifyWeb = new Spotify();
 const cookies = new Cookies();
@@ -91,16 +91,27 @@ class GenreSelection extends Component {
                 <Grid>
                 <br></br>
                 <br></br>
-                <form>
-                    <GenreSearchBar>
-                        Search for a genre or click a button below
-                        <input type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
-                    </GenreSearchBar>
-                    <Button>Reset (This should be next to the search bar)</Button>
-                    <p>On Click of a button, it will take you to another page of just
+                <Col md={5}>
+                <p>On Click of a button, it will take you to another page of just
                     the album cover, and the buttons next song, pause, add to playlist,
                     and choose another genre (it will take you back to the genre page)</p>
+                </Col>
+                <Col md={5}>
+                <form>
+                    <GenreSearchBar>
+                    Search for a genre or click a button below
+                    <div class="input-group">
+                        <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
+                        <span class="input-group-btn">
+                        <Button class = "btn btn-default">Reset </Button>
+                        </span>
+                    
+                    </div>
+                    </GenreSearchBar>
+                
+                    
                 </form>
+                </Col>
                 {this.renderButtons()}
                 </Grid>
             </div>

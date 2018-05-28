@@ -100,23 +100,24 @@ class Home extends Component {
                         <img src={this.state.nowPlaying.image} style={{width: 100}}/>
                     </div>
                     
-                    <button onClick={() => this.getNowPlaying()}>
+                    <Button onClick={() => this.getNowPlaying()}>
                         Check Now Playing
-                    </button>
+                    </Button>
                     </Col>
-                    <Col md ={3}>
+                    <Col md ={2}>
+                    <div class = "text-center">
                 <form>
-                    <input
+                    <input class="form-control"
                         name ='seed_genres'
                         placeholder='Genre:' value={this.state.seed_genres}
                         onChange={e => this.change(e)}/>
-                    <input
+                    <input class="form-control"
                         name ='target_popularity'
                         placeholder='Popularity:' value={this.state.target_popularity}
                         onChange={e => this.change(e)}/>
                 </form>
-
-                <Button bsStyle= "success" bsSize="small" class= "text-center" onClick={() => this.onSubmit()}>Enter</Button>
+                <br></br>
+                <Button bsStyle= "success"  class= "text-center" onClick={() => this.onSubmit()}>Enter</Button> </div>
                 </Col>
                 </Grid>
             </div>
