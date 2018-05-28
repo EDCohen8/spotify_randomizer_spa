@@ -8,12 +8,12 @@ const spotifyWeb = new Spotify();
 const cookies = new Cookies();
 const genreSet = new Set();
 
-
 spotifyWeb.setAccessToken(cookies.get("access_token"));
 
 class GenreSelection extends Component {
     constructor() {
         super()
+
         this.state = {
             spotifyGenres: [],
             searchTerm: '',
@@ -72,10 +72,14 @@ class GenreSelection extends Component {
         if (inputLength > 0) {
             possibleGenres = this.state.spotifyGenres.filter(
                 gen => gen.slice(0, inputLength).toLowerCase() === inputLower)
+            this.setState({
+                currentlyDisplayed:  possibleGenres
+            });
         }
-        this.setState({
-            currentlyDisplayed:  possibleGenres
-        });
+        else{
+            this.setState({currentlyDisplayed: this.state.spotifyGenres})
+        }
+
     }
 
     renderButtons() {
