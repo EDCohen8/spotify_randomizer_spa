@@ -82,7 +82,7 @@ class GenreSelection extends Component {
         spotifyWeb.getArtistRelatedArtists(id).then((response) =>
             this.setState({
                 artist: response.artists
-            })
+            }));
 
         console.log(this.state.artist)
         return id;
