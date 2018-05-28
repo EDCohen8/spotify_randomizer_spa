@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Spotify from 'spotify-web-api-js';
 import Cookies from 'universal-cookie';
-
+import {Grid, Col, Button} from "react-bootstrap";
 const spotifyWeb = new Spotify();
 
 
@@ -88,18 +88,23 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
-                <a href ='http://localhost:8888'>
-                    <button>Login With Spotify</button>
-                </a>
-
-
-                <div>Now Playing: {this.state.nowPlaying.name}</div>
-                <div>
-                    <img src={this.state.nowPlaying.image} style={{width: 100}}/>
-                </div>
-                <button onClick={() => this.getNowPlaying()}>
-                    Check Now Playing
-                </button>
+                <Grid>
+                    <Col md={3} >
+                    <a href ='http://localhost:8888'>
+                        <Button bsStyle="primary">Login With Spotify</Button>
+                    </a>
+                    </Col>
+                    <Col md={3}>
+                    <div>Now Playing: {this.state.nowPlaying.name}</div>
+                    <div>
+                        <img src={this.state.nowPlaying.image} style={{width: 100}}/>
+                    </div>
+                    
+                    <button onClick={() => this.getNowPlaying()}>
+                        Check Now Playing
+                    </button>
+                    </Col>
+                    <Col md ={3}>
                 <form>
                     <input
                         name ='seed_genres'
@@ -111,7 +116,9 @@ class Home extends Component {
                         onChange={e => this.change(e)}/>
                 </form>
 
-                <button onClick={() => this.onSubmit()}>Enter</button>
+                <Button bsStyle= "success" bsSize="small" class= "text-center" onClick={() => this.onSubmit()}>Enter</Button>
+                </Col>
+                </Grid>
             </div>
         );
     }

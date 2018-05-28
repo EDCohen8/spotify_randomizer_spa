@@ -4,6 +4,7 @@ import Spotify from "spotify-web-api-js";
 import GenreButton from './StyleComponents/GenreButton'
 import GenreSearchBar from './StyleComponents/GenreSearchBar'
 import GenreSelction from './GenreSelection'
+import {Grid} from "react-bootstrap";
 
 const spotifyWeb = new Spotify();
 const cookies = new Cookies();
@@ -41,6 +42,7 @@ class SongPage extends Component {
     render() {
         return (
             <div>
+                <Grid>
                 <iframe src="https://open.spotify.com/" onload="this.src = this.getSongUrl();" width="300" height="380"
                         frameBorder="0" allowTransparency="true" allow="encrypted-media" id="spotify">''</iframe>
                 <script>
@@ -48,6 +50,7 @@ class SongPage extends Component {
                   //  document.getElementById('spotify').src = this.getSongUrl()
                 }
                     </script>
+                </Grid>
             </div>
         )
     }

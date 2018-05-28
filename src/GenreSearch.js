@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Cookies from 'universal-cookie';
 import Spotify from "spotify-web-api-js";
 import Autosuggest from 'react-autosuggest';
+import {Grid, Button} from "react-bootstrap";
 
 const spotifyWeb = new Spotify();
 
@@ -120,9 +121,10 @@ class GenreSearch extends Component {
         };
         return (
             <div>
-                <h2>GenreSearch</h2>
-                <button onClick={ () => console.log("but " +  value + " " + suggestions + " " + inputProps)}>
-                </button>
+                <Grid>
+                <h2 >GenreSearch</h2>
+                <Button onClick={ () => console.log("but " +  value + " " + suggestions + " " + inputProps)}>
+                </Button>
                     <Autosuggest
                         suggestions={suggestions}
                         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -132,6 +134,7 @@ class GenreSearch extends Component {
                         renderSuggestion={renderSuggestion}
                         inputProps={inputProps}
                     />
+                </Grid>
             </div>
         );
     }
