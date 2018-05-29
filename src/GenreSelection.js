@@ -169,26 +169,23 @@ class GenreSelection extends Component {
                 </Col>
                     
                 <Col md={5}>
-                <Jumbotron>
-                <form>
-                    <GenreSearchBar>
-                    Search for a genre or click a button below
-                    <div class="input-group">
-                        <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
-                        <span class="input-group-btn">
-                        <Button class = "btn btn-default" bsStyle = "success">Reset </Button>
-                        </span>
-                        
-                    </div>
-                    </GenreSearchBar>
-                
-                    
-                </form>
-                <div class="text-center">
-                <Button  bsStyle="success">Generate Song</Button>
-                </div>
-                </Jumbotron></Col>
-
+                    <Jumbotron>
+                        <form>
+                            <GenreSearchBar>
+                                Search for a genre or click a button below
+                                <div class="input-group">
+                                    <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
+                                    <span class="input-group-btn">
+                                        <Button class = "btn btn-default" bsStyle = "success">Reset </Button>
+                                    </span>
+                                </div>
+                            </GenreSearchBar> 
+                        </form>
+                        <div class="text-center">
+                            <Button  bsStyle="success"><a href="http://localhost:3000/#/songPage">Generate Song</a></Button>
+                        </div>
+                    </Jumbotron>  
+                </Col>
                 <br></br>
                 {this.renderButtons()}
                 </Grid>
