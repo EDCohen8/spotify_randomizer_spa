@@ -15,7 +15,7 @@ class Main extends Component {
         return (
             <HashRouter>
                 <div>
-                    <h1 class="text-center text-success"> <strong>Spotify Random Song SPA </strong></h1>
+                    
                     <div className="content">
                         <Route path="/" component={NavBar}/>
                         <Route path="/login" component={Login}/>

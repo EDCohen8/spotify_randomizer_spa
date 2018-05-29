@@ -37,7 +37,9 @@ export default class CustomNavbar extends Component{
         return(
         <Navbar>
             <Navbar.Header>
-                <Navbar.Toggle />
+                <Navbar.Brand>
+                    <p class="text-success"> Random Spotify Player</p>
+                </Navbar.Brand>
                 </Navbar.Header>
                 <Nav >
                     <NavItem eventKey={1} componentClass={Link} href="/songPage" to="/songPage"><ins> Song</ins> </NavItem>
