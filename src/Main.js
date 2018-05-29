@@ -15,18 +15,18 @@ class Main extends Component {
     render() {
         return (
             <HashRouter>
-            <div>
-                <h1 class="text-center text-success"> <strong>Spotify Random Song SPA </strong></h1>
-                <NavBar />
-                <div className="content">
-                    <Route path="/" component={Login}/>
-                    <Route path="/home" component={Home}/>
-                    <Route path="/dataVisualization" component={DataVisualization}/>
-                    <Route path="/genreSelection" component={GenreSelection}/>
-                    <Route path="/songPage" component={SongPage}/>
+                <div>
+                    <h1 class="text-center text-success"> <strong>Spotify Random Song SPA </strong></h1>
+                    <NavBar />
+                    <div className="content">
+                        <Route path="/" component={Login}/>
+                        <Route path="/home" component={Home}/>
+                        <Route path="/dataVisualization" component={DataVisualization}/>
+                        <Route path="/genreSelection" component={GenreSelection}/>
+                        <Route path="/songPage" component={SongPage}/>
 
+                    </div>
                 </div>
-            </div>
             </HashRouter>
         );
     }
