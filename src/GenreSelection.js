@@ -25,11 +25,12 @@ class GenreSelection extends Component {
             tracks: '',
             artist: ''
         }
-        this.getSeeds()
-        this.updateGenres = this.updateGenres.bind(this);
     }
 
-
+    componentWillMount(){
+        this.getSeeds()
+        this.updateGenres = this.updateGenres.bind(this)
+    }
 
     getState(){
         return this.state;
@@ -83,7 +84,7 @@ class GenreSelection extends Component {
             this.setState({
                 artist: response.artists
             }));
-
+        console.log('g '+ global.artist)
         console.log(this.state.artist)
         return id;
 
