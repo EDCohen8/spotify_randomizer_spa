@@ -23,7 +23,7 @@ class Chart extends Component{
         displayTitle:true,
         displayLegend: true,
         legendPosition:'right',
-        location:'City'
+        location:'Name'
     }
 
 

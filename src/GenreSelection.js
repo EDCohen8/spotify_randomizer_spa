@@ -49,41 +49,45 @@ class GenreSelection extends Component {
     }
 
     getSongUrl(){
-        var track = JSON.stringify(this.state.tracks);
-        var id = "https://open.spotify.com/track/"
-        var index = track.search(id)
-        var url = ""
-        var i = id.length
-        while(i !== 53){
-            url += track[index+i++]
-
+        var song = {}
+        var url =''
+        for (var i = 0, emp; i < this.state.tracks.length; i++) {
+            emp = this.state.tracks[i];
+            song[ emp.id] = emp.id;
+            url = song[emp.id]
         }
-        console.log(track)
-        console.log(index)
+
         console.log("url " + url)
         console.log(this.state.tracks)
         this.setState({
-            url: "https://open.spotify.com/embed/track/" + url.toString()
+            url: "https://open.spotify.com/embed/track/" + url
         })
         global.addTrack(this.state.url)
         return url;
     }
 
     getArtist(){
-        var song =JSON.stringify(this.state.tracks);
-        var temp = "https://open.spotify.com/artist/";
-        var index = song.search(temp);
-        var i =  temp.length;
-        var id = '';
-        while(i < temp.length + 22){
-             id += song[index + i++]
+        var artists = {}
+        var id ='';
+        var artistID =''
+        var artistID = {}
+        for (var i = 0, emp; i < this.state.tracks.length; i++) {
+            emp = this.state.tracks[i];
+            artists[ emp.id] = emp.id;
+            id = artists[emp.id]
+            artists[emp.name] = emp.artists;
+            artistID = emp.artists[0].id
         }
+
         console.log("id " + id)
-        global.addArtist(id)
-        spotifyWeb.getArtistRelatedArtists(id).then((response) =>
+        global.addArtist(artistID)
+        spotifyWeb.getArtistRelatedArtists(artistID).then((response) =>
             this.setState({
                 artist: response.artists
             }));
+
+        console.log(artists)
+        console.log(artistID)
         console.log('g '+ global.artist)
         console.log(this.state.artist)
         return id;
