@@ -32,9 +32,9 @@ class Login extends Component {
         return (
             <div>
                 <Grid>
-                <a href ='http://localhost:8888'>
-                    <Button bsStyle = "primary" >Login With Spotify</Button>
-                </a>
+                    <a href ='http://localhost:8888'>
+                        <Button bsStyle = "primary" >Login With Spotify</Button>
+                    </a>
                 </Grid>
             </div>
         );

@@ -4,7 +4,7 @@ import Spotify from "spotify-web-api-js";
 import GenreButton from './StyleComponents/GenreButton'
 import GenreSearchBar from './StyleComponents/GenreSearchBar';
 import * as global from './globals';
-import {Grid, Col, Button} from "react-bootstrap"
+import {Grid, Col, Button, Panel, Jumbotron} from "react-bootstrap"
 
 const spotifyWeb = new Spotify();
 const cookies = new Cookies();
@@ -154,13 +154,21 @@ class GenreSelection extends Component {
                 <Grid>
                 <br></br>
                 <br></br>
-                <Col md={5}>
-                <p>On Click of a button, it will take you to another page of just
-                    the album cover, and the buttons next song, pause, add to playlist,
-                    and choose another genre (it will take you back to the genre page)</p>
+                <Col md={7}>
+                <Panel bsStyle="success">
+                    <Panel.Heading>
+                        <h2 class="text-center"><strong> Genre Selection </strong></h2>
+                    </Panel.Heading>   
+                    <Panel.Body>             
+                        <p>Welcome to the genre selection page of the spotify song picker! <br></br>
+                        Below are a list of the many genres that are available for our generator.<br></br><br></br>
+                        You may either collect </p>
+                    </Panel.Body>
+                </Panel>
                 </Col>
-                    <a href="http://localhost:3000/#/songPage">Generate Song</a>
+                    
                 <Col md={5}>
+                <Jumbotron>
                 <form>
                     <GenreSearchBar>
                     Search for a genre or click a button below
@@ -169,13 +177,18 @@ class GenreSelection extends Component {
                         <span class="input-group-btn">
                         <Button class = "btn btn-default" bsStyle = "success">Reset </Button>
                         </span>
-                    
+                        
                     </div>
                     </GenreSearchBar>
                 
                     
                 </form>
-                </Col>
+                <div class="text-center">
+                <Button  bsStyle="success">Generate Song</Button>
+                </div>
+                </Jumbotron></Col>
+
+                <br></br>
                 {this.renderButtons()}
                 </Grid>
             </div>
