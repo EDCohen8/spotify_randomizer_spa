@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 export default class CustomNavbar extends Component{
     constructor(){
         super()
-         const params = this.getHashParams();
+        const params = this.getHashParams();
 
         let auth_token = params["/access_token"]
         console.log("Success")

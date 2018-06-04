@@ -10,11 +10,16 @@ const spotifyWeb = new Spotify();
 const cookies = new Cookies();
 const genreSet = new Set();
 
-spotifyWeb.setAccessToken(cookies.get("access_token"));
+
 
 class GenreSelection extends Component {
     constructor() {
         super()
+        const params = this.getHashParams();
+        let auth_token = params["/genreSelection/access_token"];
+        console.log(params);
+        console.log(auth_token);
+        spotifyWeb.setAccessToken(auth_token);
 
         this.state = {
             spotifyGenres: [],
@@ -34,6 +39,18 @@ class GenreSelection extends Component {
         this.getArt = this.getArt.bind(this);
         this.setName = this.setName.bind(this);
 }
+
+    getHashParams() {
+        var hashParams = {};
+        var e, r = /([^&;=]+)=?([^&;]*)/g,
+            q = window.location.hash.substring(1);
+        e = r.exec(q)
+        while (e) {
+            hashParams[e[1]] = decodeURIComponent(e[2]);
+            e = r.exec(q);
+        }
+        return hashParams;
+    }
 
 //getting similar artists
 getArt(){
