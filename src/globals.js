@@ -1,6 +1,8 @@
 export var genres = [];
 export var url = '';
-export var artist = ''
+export var artist = '';
+export var art = [];
+export var pop = [];
 
 export function addGenre(newValue) {
 
@@ -20,4 +22,16 @@ export function addTrack(newValue){
 
 export function addArtist(a){
     artist = a
+}
+
+export function addArt(a){
+    art = a;
+}
+
+export function addPop(a){
+    var temp = [];
+    for(var i = 0; i < a.length; i++){
+        temp.push(parseInt(a[i]))
+    }
+    pop = temp;
 }

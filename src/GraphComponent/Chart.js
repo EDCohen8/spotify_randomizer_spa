@@ -36,7 +36,7 @@ class Chart extends Component{
                     options={{
                         title:{
                             display:this.props.displayTitle,
-                            text:'Related Artists to '+this.props.location,
+                            text:'Related Artists '+this.props.location,
                             fontSize:25
                         },
                         legend:{

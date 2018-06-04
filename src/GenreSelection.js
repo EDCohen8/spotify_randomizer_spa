@@ -23,14 +23,50 @@ class GenreSelection extends Component {
             genres: [],
             target_popularity: 0,
             tracks: '',
-            artist: ''
+            artist: '',
+            artists: {},
+            artistNames: [],
+            popularity: []
         }
-    }
 
-    componentWillMount(){
         this.getSeeds()
         this.updateGenres = this.updateGenres.bind(this)
+        this.getArt = this.getArt.bind(this)
+        this.setName = this.setName.bind(this)
+}
+
+
+getArt(){
+    spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
+        this.setState({
+            artists: response.artists.slice(0,5)
+
+        }, () => {this.setName()}));
+
+    console.log(this.state.artists)
+
+
+    console.log(this.state.artistNames);
+    console.log('g '+ global.artist);
+
+}
+
+setName(){
+    var art = []
+    var pop = []
+    for (var i = 0, emp; i < 5; i++) {
+        emp = this.state.artists[i];
+        art.push(emp.name)
+        pop.push(emp.popularity)
     }
+    this.setState({
+        artistNames: art,
+        popularity: pop
+    }, () => {console.log(this.state.artistNames + " " + this.state.popularity)});
+    console.log("this state" + this.state)
+    global.addArt(art);
+    global.addPop(pop);
+}
 
     getState(){
         return this.state;
@@ -102,7 +138,8 @@ class GenreSelection extends Component {
         })).then((response) =>
             this.setState({
                 tracks: response.tracks
-            }))
+            }));
+        this.getArt();
 
         console.log(this.state.tracks)
     }
