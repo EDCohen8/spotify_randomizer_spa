@@ -19,38 +19,19 @@ class DataVisualization extends Component {
         }
     }
 
-    getArtist(){
-
-        spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
-            this.setState({
-                artists: response.artists
-            }));
-        console.log(global.artist)
-        console.log(this.state.artists)
-
-    }
-
     componentWillMount(){
         this.getChartData();
-        this.getArtist()
     }
 
     getChartData(){
-
+        // Ajax calls here
         this.setState({
             chartData:{
-                labels: ['Muse', 'Posty', 'Kanye', 'Cardi B', 'Bad Bunny', 'BTS'],
+                labels: global.art,
                 datasets:[
                     {
                         label:'Popularity',
-                        data:[
-                            90,
-                            100,
-                            1,
-                            10,
-                            40,
-                            30
-                        ],
+                        data:global.pop,
                         backgroundColor:[
                             'rgba(255, 99, 132, 0.6)',
                             'rgba(54, 162, 235, 0.6)',
@@ -59,6 +40,11 @@ class DataVisualization extends Component {
                             'rgba(153, 102, 255, 0.6)',
                             'rgba(255, 159, 64, 0.6)',
                             'rgba(255, 99, 132, 0.6)'
+                        ],
+                        hoverBackgroundColor: [
+                            '#FF6384',
+                            '#36A2EB',
+                            '#FFCE56'
                         ]
                     }
                 ]
@@ -69,13 +55,7 @@ class DataVisualization extends Component {
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-
-                    <Grid>
-                        <h2>Data Visualization</h2>
-                    </Grid>
-                </div>
-                <Chart chartData={this.state.chartData} location="J Cole" legendPosition="bottom"/>
+                <Chart chartData={this.state.chartData} location="" legendPosition="bottom"/>
             </div>
         );
     }

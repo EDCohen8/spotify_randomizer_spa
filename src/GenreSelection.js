@@ -23,14 +23,50 @@ class GenreSelection extends Component {
             genres: [],
             target_popularity: 0,
             tracks: '',
-            artist: ''
+            artist: '',
+            artists: {},
+            artistNames: [],
+            popularity: []
         }
-    }
 
-    componentWillMount(){
-        this.getSeeds()
-        this.updateGenres = this.updateGenres.bind(this)
+        this.getSeeds();
+        this.updateGenres = this.updateGenres.bind(this);
+        this.getArt = this.getArt.bind(this);
+        this.setName = this.setName.bind(this);
+}
+
+//getting similar artists
+getArt(){
+    spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
+        this.setState({
+            artists: response.artists.slice(0,5)
+
+        }, () => {this.setName()}));
+
+    console.log(this.state.artists)
+
+
+    console.log(this.state.artistNames);
+    console.log('g '+ global.artist);
+
+}
+//parsing the artists from getArt and getting the artist names and IDs
+setName(){
+    var art = []
+    var pop = []
+    for (var i = 0, emp; i < 5; i++) {
+        emp = this.state.artists[i];
+        art.push(emp.name)
+        pop.push(emp.popularity)
     }
+    this.setState({
+        artistNames: art,
+        popularity: pop
+    }, () => {console.log(this.state.artistNames + " " + this.state.popularity)});
+    console.log("this state" + this.state)
+    global.addArt(art);
+    global.addPop(pop);
+}
 
     getState(){
         return this.state;
@@ -47,58 +83,64 @@ class GenreSelection extends Component {
             return this.state.spotifyGenres
         });
     }
-
+//getting the id of the artist and setting the url
     getSongUrl(){
-        var track = JSON.stringify(this.state.tracks);
-        var id = "https://open.spotify.com/track/"
-        var index = track.search(id)
-        var url = ""
-        var i = id.length
-        while(i !== 53){
-            url += track[index+i++]
-
+        var song = {}
+        var url =''
+        for (var i = 0, emp; i < this.state.tracks.length; i++) {
+            emp = this.state.tracks[i];
+            song[ emp.id] = emp.id;
+            url = song[emp.id]
         }
-        console.log(track)
-        console.log(index)
+
         console.log("url " + url)
         console.log(this.state.tracks)
         this.setState({
-            url: "https://open.spotify.com/embed/track/" + url.toString()
+            url: "https://open.spotify.com/embed/track/" + url
         })
         global.addTrack(this.state.url)
         return url;
     }
 
     getArtist(){
-        var song =JSON.stringify(this.state.tracks);
-        var temp = "https://open.spotify.com/artist/";
-        var index = song.search(temp);
-        var i =  temp.length;
-        var id = '';
-        while(i < temp.length + 22){
-             id += song[index + i++]
+        var artists = {}
+        var id ='';
+        var artistID =''
+        var artistID = {}
+        for (var i = 0, emp; i < this.state.tracks.length; i++) {
+            emp = this.state.tracks[i];
+            artists[ emp.id] = emp.id;
+            id = artists[emp.id]
+            artists[emp.name] = emp.artists;
+            artistID = emp.artists[0].id
         }
+
         console.log("id " + id)
-        global.addArtist(id)
-        spotifyWeb.getArtistRelatedArtists(id).then((response) =>
+        global.addArtist(artistID)
+        spotifyWeb.getArtistRelatedArtists(artistID).then((response) =>
             this.setState({
                 artist: response.artists
             }));
+
+        console.log(artists)
+        console.log(artistID)
         console.log('g '+ global.artist)
         console.log(this.state.artist)
         return id;
 
     }
     generateSong(){
+        var num = Math.floor((Math.random() * 60) + 1);
         spotifyWeb.getRecommendations(({
             limit: 1,
             market: 'US',
             seed_genres: this.state.genres.toString(),
-            target_popularity: this.state.target_popularity
+            target_popularity: num
         })).then((response) =>
             this.setState({
                 tracks: response.tracks
-            }))
+            }));
+        this.getArt();
 
         console.log(this.state.tracks)
     }
@@ -158,7 +200,7 @@ class GenreSelection extends Component {
                 <Col md={7}>
                 <Panel bsStyle="success">
                     <Panel.Heading>
-                        <h2 className="text-center"><strong> Genre Selection </strong></h2>
+                        <h2 class="text-center"><strong> Genre Selection </strong></h2>
                     </Panel.Heading>   
                     <Panel.Body>             
                         <p>Welcome to the genre selection page of the spotify song picker! <br></br>
@@ -173,15 +215,15 @@ class GenreSelection extends Component {
                         <form>
                             <GenreSearchBar>
                                 Search for a genre or click a button below
-                                <div className="input-group">
-                                    <input className= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
-                                    <span className="input-group-btn">
-                                        <Button className = "btn btn-default" bsStyle = "success">Reset </Button>
+                                <div class="input-group">
+                                    <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
+                                    <span class="input-group-btn">
+                                        <Button class = "btn btn-default" bsStyle = "success">Reset </Button>
                                     </span>
                                 </div>
                             </GenreSearchBar> 
                         </form>
-                        <div className="text-center">
+                        <div class="text-center">
                             <Button  bsStyle="success"><a href="http://localhost:3000/#/songPage">Generate Song</a></Button>
                         </div>
                     </Jumbotron>  
