@@ -59,11 +59,12 @@ class DataVisualization extends Component {
         return (
             <div className="App">
                 <Chart chartData={this.state.chartData} location="" legendPosition="bottom"/>
-                <table>
-                    <header>
-                        Click on any of the artists' names to be redirected to Spotify:
-                    </header>
 
+                <table border="3" cellPadding="3">
+                    <tr>
+                        <td>Artist link:    |</td>
+                        <td>Popularity:     |</td>
+                    </tr>
                     <tr>
                         <td><a href={this.state.ids[0]}>{this.state.artistNames[0]}</a></td>
                         <td>{this.state.popularity[0]}</td>

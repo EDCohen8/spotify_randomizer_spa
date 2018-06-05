@@ -77,7 +77,7 @@ setName(){
         emp = this.state.artists[i];
         art.push(emp.name);
         pop.push(emp.popularity);
-        ids.push("https://open.spotify.com/embed/artist/" + emp.id);
+        ids.push("https://open.spotify.com/artist/" + emp.id);
     }
     this.setState({
         artistNames: art,
