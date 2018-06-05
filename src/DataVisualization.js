@@ -66,23 +66,23 @@ class DataVisualization extends Component {
                         <td>Popularity:     |</td>
                     </tr>
                     <tr>
-                        <td><a href={this.state.ids[0]}>{this.state.artistNames[0]}</a></td>
+                        <td><a href={this.state.ids[0]} target="_blank">{this.state.artistNames[0]}</a></td>
                         <td>{this.state.popularity[0]}</td>
                     </tr>
                     <tr>
-                        <td><a href={this.state.ids[1]}>{this.state.artistNames[1]}</a></td>
+                        <td><a href={this.state.ids[1]} target="_blank">{this.state.artistNames[1]}</a></td>
                         <td>{this.state.popularity[1]}</td>
                     </tr>
                     <tr>
-                        <td><a href={this.state.ids[2]}>{this.state.artistNames[2]}</a></td>
+                        <td><a href={this.state.ids[2]} target="_blank">{this.state.artistNames[2]}</a></td>
                         <td>{this.state.popularity[2]}</td>
                     </tr>
                     <tr>
-                        <td><a href={this.state.ids[3]}>{this.state.artistNames[3]}</a></td>
+                        <td><a href={this.state.ids[3]} target="_blank">{this.state.artistNames[3]}</a></td>
                         <td>{this.state.popularity[3]}</td>
                     </tr>
                     <tr>
-                        <td><a href={this.state.ids[4]}>{this.state.artistNames[4]}</a></td>
+                        <td><a href={this.state.ids[4]} target="_blank">{this.state.artistNames[4]}</a></td>
                         <td>{this.state.popularity[4]}</td>
                     </tr>
                 </table>

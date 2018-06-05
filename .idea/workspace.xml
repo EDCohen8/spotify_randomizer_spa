@@ -76,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataVisualization.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataVisualization.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+            <state relative-caret-position="284">
+              <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -97,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenreSelection.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenreSelection.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GenreSelection.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="474">
@@ -164,8 +164,8 @@
         <option value="$PROJECT_DIR$/authorization_code/app.js" />
         <option value="$PROJECT_DIR$/src/CustomNavbar.js" />
         <option value="$PROJECT_DIR$/src/globals.js" />
-        <option value="$PROJECT_DIR$/src/DataVisualization.js" />
         <option value="$PROJECT_DIR$/src/GenreSelection.js" />
+        <option value="$PROJECT_DIR$/src/DataVisualization.js" />
       </list>
     </option>
   </component>
@@ -286,12 +286,12 @@
       <workItem from="1527570227962" duration="10317000" />
       <workItem from="1528140763811" duration="3292000" />
       <workItem from="1528145982694" duration="1354000" />
-      <workItem from="1528157686337" duration="4508000" />
+      <workItem from="1528157686337" duration="4777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105773000" />
+    <option name="totallyTimeSpent" value="106042000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -525,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GenreSelection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
@@ -539,6 +532,13 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
         </state>
       </provider>
     </entry>
