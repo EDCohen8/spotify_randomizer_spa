@@ -30,13 +30,12 @@ class Chart extends Component{
     render(){
         return (
             <div className="chart">
-                
                 <Pie
                     data={this.state.chartData}
                     options={{
                         title:{
                             display:this.props.displayTitle,
-                            text:'Related Artists to '+this.props.location,
+                            text: this.props.location,
                             fontSize:25
                         },
                         legend:{
