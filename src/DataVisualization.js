@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Grid, Col, Table} from "react-bootstrap"
+import {Grid, Col, Table, Jumbotron} from "react-bootstrap"
 import Chart from './GraphComponent/Chart';
 import Cookies from 'universal-cookie';
 import Spotify from "spotify-web-api-js";
@@ -54,7 +54,9 @@ class DataVisualization extends Component {
             <div className="App">
                 <Grid>
                     <Col md={3}>
-                        <br></br><br></br><br></br>
+                        <br></br><br></br>
+                        <h2 className="text-center" ><strong> Related artist table </strong></h2>
+                        <br></br>
                         <Table border="3" cellPadding="3" align="left">
                             <thead>
                                 <tr>   
@@ -93,7 +95,9 @@ class DataVisualization extends Component {
                         </Table>
                     </Col>
                     <Col md={9}>
+                        <Jumbotron>
                         <Chart chartData={this.state.chartData} location={global.name} legendPosition="top"/>
+                        </Jumbotron>
                     </Col>
                 </Grid>            
             </div>
