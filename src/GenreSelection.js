@@ -212,6 +212,11 @@ setName(){
             <GenreButton key={genre} onClick={() => this.onSubmit(genre)}>{genre}</GenreButton>
         ))
     }
+    maxNum(){
+        if(global.genres.length == 5){
+            return 'MAX NUMBER OF GENRES SELECTED'
+        }
+    }
 
     render() {
         return (
@@ -227,7 +232,9 @@ setName(){
                     <Panel.Body>             
                         <p>Welcome to the genre selection page of the spotify song picker! <br></br>
                         Below are a list of the many genres that are available for our generator.<br></br><br></br>
-                        Select up to 5 genres! </p>
+                            Select up to 5 genres!<br></br>
+                            Selected genres: {global.genres.toString()}<br></br>
+                            {this.maxNum()}</p>
                     </Panel.Body>
                 </Panel>
                 </Col>
@@ -245,7 +252,7 @@ setName(){
                                 </div>
                             </GenreSearchBar> 
                         </form>
-                        <div class="text-center">
+                        <div className="text-center">
                             <Button  bsStyle="success"><a href="http://localhost:3000/#/songPage">Generate Song</a></Button>
                         </div>
                     </Jumbotron>  

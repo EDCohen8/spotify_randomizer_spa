@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a3acfae1-fec9-4e05-87d1-6c00ffb8ff45" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataVisualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataVisualization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GenreSelection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GenreSelection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/globals.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,8 +50,8 @@
       <file leaf-file-name="globals.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/globals.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="34">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -81,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataVisualization.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataVisualization.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="233">
-              <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -102,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenreSelection.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GenreSelection.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GenreSelection.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+            <state relative-caret-position="444">
+              <caret line="235" column="82" selection-start-line="235" selection-start-column="82" selection-end-line="235" selection-end-column="82" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -168,9 +164,9 @@
         <option value="$PROJECT_DIR$/src/StyleComponents/SpotifyLoginButton.js" />
         <option value="$PROJECT_DIR$/authorization_code/app.js" />
         <option value="$PROJECT_DIR$/src/CustomNavbar.js" />
+        <option value="$PROJECT_DIR$/src/DataVisualization.js" />
         <option value="$PROJECT_DIR$/src/globals.js" />
         <option value="$PROJECT_DIR$/src/GenreSelection.js" />
-        <option value="$PROJECT_DIR$/src/DataVisualization.js" />
       </list>
     </option>
   </component>
@@ -190,7 +186,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="45" />
     <option name="y" value="22" />
     <option name="width" value="1235" />
@@ -291,15 +287,15 @@
       <workItem from="1527570227962" duration="10317000" />
       <workItem from="1528140763811" duration="3292000" />
       <workItem from="1528145982694" duration="1354000" />
-      <workItem from="1528157686337" duration="2981000" />
+      <workItem from="1528157686337" duration="3632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104246000" />
+    <option name="totallyTimeSpent" value="104897000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
@@ -506,16 +502,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/globals.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/StyleComponents/GenreButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -530,20 +516,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GenreSelection.js">
+    <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="79" column="49" selection-start-line="79" selection-start-column="49" selection-end-line="79" selection-end-column="49" />
+        <state relative-caret-position="233">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataVisualization.js">
+    <entry file="file://$PROJECT_DIR$/src/GenreSelection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        <state relative-caret-position="444">
+          <caret line="235" column="82" selection-start-line="235" selection-start-column="82" selection-end-line="235" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
