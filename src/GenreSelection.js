@@ -19,8 +19,7 @@ class GenreSelection extends Component {
         const params = this.getHashParams();
         console.log(cookies);
 
-        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10 ||
-            params["/genreSelection/access_token"] != cookies.get("access_token")){
+        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10){
             let auth_token = params["/genreSelection/access_token"];
             cookies.set("access_token", auth_token, {path: '/'})
             spotifyWeb.setAccessToken(auth_token);
@@ -172,7 +171,7 @@ class GenreSelection extends Component {
 
 
     generateSong(){
-        var num = Math.floor(Math.random() * 60);
+        var num = Math.floor((Math.random() * 23) + Math.random() *17);
         spotifyWeb.getRecommendations(({
             limit: 1,
             market: 'US',

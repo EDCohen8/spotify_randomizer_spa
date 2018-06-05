@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
     Route,
     NavLink,
-    HashRouter
+    HashRouter,
+    Redirect
 } from "react-router-dom";
 import DataVisualization from "./DataVisualization";
 import GenreSelection from "./GenreSelection";
@@ -22,6 +23,7 @@ class Main extends Component {
                         <Route path="/dataVisualization" component={DataVisualization}/>
                         <Route path="/genreSelection" component={GenreSelection}/>
                         <Route path="/songPage" component={SongPage}/>
+                        <Redirect from="/" to="login" />
                     </div>
                 </div>
             </HashRouter>
