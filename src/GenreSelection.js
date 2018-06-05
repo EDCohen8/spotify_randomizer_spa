@@ -10,6 +10,7 @@ const spotifyWeb = new Spotify();
 const cookies = new Cookies();
 const genreSet = new Set();
 
+//All Api calls are made in this component. The other components display the data
 
 
 class GenreSelection extends Component {
@@ -69,12 +70,14 @@ getArt(){
 }
 //parsing the artists from getArt and getting the artist names and IDs
 setName(){
-    var art = []
-    var pop = []
+    var art = [];
+    var pop = [];
+    var ids = [];
     for (var i = 0, emp; i < 5; i++) {
         emp = this.state.artists[i];
-        art.push(emp.name)
-        pop.push(emp.popularity)
+        art.push(emp.name);
+        pop.push(emp.popularity);
+        ids.push("https://open.spotify.com/embed/artist/" + emp.id);
     }
     this.setState({
         artistNames: art,
@@ -83,6 +86,8 @@ setName(){
     console.log("this state" + this.state)
     global.addArt(art);
     global.addPop(pop);
+    global.addArtists(ids);
+    console.log("ids" + ids)
 }
 
     getState(){
@@ -222,7 +227,7 @@ setName(){
                     <Panel.Body>             
                         <p>Welcome to the genre selection page of the spotify song picker! <br></br>
                         Below are a list of the many genres that are available for our generator.<br></br><br></br>
-                        You may either collect </p>
+                        Select up to 5 genres! </p>
                     </Panel.Body>
                 </Panel>
                 </Col>

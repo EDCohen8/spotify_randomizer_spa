@@ -1,8 +1,15 @@
+//globla variables that can be access from all components.
+//This is sufficient, because this does not mess with security (access_token is only good for an hour, and does not give access to any private information)
 export var genres = [];
 export var url = '';
 export var artist = '';
 export var art = [];
 export var pop = [];
+export var artists = [];
+
+export function addArtists(a){
+    artists = a;
+}
 
 export function addGenre(newValue) {
 
