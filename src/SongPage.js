@@ -27,9 +27,8 @@ class SongPage extends Component {
     render() {
         return (
             <div>
-
                 <Grid>
-                    <iframe src ={this.state.url} width="300" height="380" frameBorder="0"  allow="encrypted-media" name ="spotify">''</iframe>
+                <p align="center"><iframe src ={this.state.url} width="300" height="380" frameBorder="0"  allow="encrypted-media" name ="spotify">' '</iframe></p>
                 </Grid>
             </div>
         )

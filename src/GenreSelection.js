@@ -45,7 +45,7 @@ class GenreSelection extends Component {
         this.getArt = this.getArt.bind(this);
         this.setName = this.setName.bind(this);
         this.resetButton = this.resetButton.bind(this);
-}
+    }
 
     getHashParams() {
         var hashParams = {};
@@ -59,48 +59,47 @@ class GenreSelection extends Component {
         return hashParams;
     }
 
-//getting similar artists
-getArt(){
-    spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
-        this.setState({
-            artists: response.artists.slice(0,5)
+    //getting similar artists
+    getArt(){
+        spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
+            this.setState({
+                artists: response.artists.slice(0,5)
 
-        }, () => {this.setName()}));
+            }, () => {this.setName()}));
 
-    console.log(this.state.artists)
+        console.log(this.state.artists)
 
 
-    console.log(this.state.artistNames);
-    console.log('g '+ global.artist);
+        console.log(this.state.artistNames);
+        console.log('g '+ global.artist);
 
-}
-//parsing the artists from getArt and getting the artist names and IDs
-setName(){
-    var art = [];
-    var pop = [];
-    var ids = [];
-    for (var i = 0, emp; i < 5; i++) {
-        emp = this.state.artists[i];
-        art.push(emp.name);
-        pop.push(emp.popularity);
-        ids.push("https://open.spotify.com/artist/" + emp.id);
     }
-    this.setState({
-        artistNames: art,
-        popularity: pop
-    }, () => {console.log(this.state.artistNames + " " + this.state.popularity)});
-    console.log("this state" + this.state)
-    global.addArt(art);
-    global.addPop(pop);
-    global.addArtists(ids);
-    console.log("ids" + ids)
-}
+    //parsing the artists from getArt and getting the artist names and IDs
+    setName(){
+        var art = [];
+        var pop = [];
+        var ids = [];
+        for (var i = 0, emp; i < 5; i++) {
+            emp = this.state.artists[i];
+            art.push(emp.name);
+            pop.push(emp.popularity);
+            ids.push("https://open.spotify.com/artist/" + emp.id);
+        }
+        this.setState({
+            artistNames: art,
+            popularity: pop
+        }, () => {console.log(this.state.artistNames + " " + this.state.popularity)});
+        console.log("this state" + this.state)
+        global.addArt(art);
+        global.addPop(pop);
+        global.addArtists(ids);
+        console.log("ids" + ids)
+    }
 
     getState(){
         return this.state;
     }
 
-//test
     getSeeds(){
         spotifyWeb.getAvailableGenreSeeds().then((response) => {
             let temp = response.genres
@@ -111,7 +110,8 @@ setName(){
             return this.state.spotifyGenres
         });
     }
-//getting the id of the artist and setting the url
+
+    //getting the id of the artist and setting the url
     getSongUrl(){
         var song = {}
         var url =''
@@ -157,6 +157,8 @@ setName(){
         return id;
 
     }
+
+
     generateSong(){
         var num = Math.floor((Math.random() * 60) + 1);
         spotifyWeb.getRecommendations(({
