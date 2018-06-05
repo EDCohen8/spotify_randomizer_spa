@@ -42,3 +42,7 @@ export function addPop(a){
     }
     pop = temp;
 }
+
+export function resetGenres(){
+    genres = [];
+}

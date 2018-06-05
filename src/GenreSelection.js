@@ -215,7 +215,7 @@ setName(){
         ))
     }
     maxNum(){
-        if(global.genres.length == 5){
+        if(this.state.genres.length == 5){
             return 'MAX NUMBER OF GENRES SELECTED'
         }
     }
@@ -224,6 +224,17 @@ setName(){
         this.setState({searchTerm: "",
             currentlyDisplayed: this.state.spotifyGenres,
             genres: []})
+        global.resetGenres()
+        genreSet.clear()
+    }
+
+    displayGenres() {
+        var a = ""
+        var i = 0;
+        for (i = 0; i < this.state.genres.length; i++) {
+         a += this.state.genres[i] + " "
+        }
+        return a
     }
 
     render() {
@@ -241,7 +252,7 @@ setName(){
                         <p>Welcome to the genre selection page of the spotify song picker! <br></br>
                         Below are a list of the many genres that are available for our generator.<br></br><br></br>
                             Select up to 5 genres!<br></br>
-                            Selected genres: {global.genres.toString()}<br></br>
+                            Selected genres: {this.displayGenres()}<br></br>
                             {this.maxNum()}</p>
                     </Panel.Body>
                 </Panel>
@@ -255,7 +266,7 @@ setName(){
                                 <div class="input-group">
                                     <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
                                     <span class="input-group-btn">
-                                        <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset </Button>
+                                        <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset</Button>
                                     </span>
                                 </div>
                             </GenreSearchBar> 
