@@ -38,6 +38,7 @@ class GenreSelection extends Component {
         this.updateGenres = this.updateGenres.bind(this);
         this.getArt = this.getArt.bind(this);
         this.setName = this.setName.bind(this);
+        this.resetButton = this.resetButton.bind(this);
 }
 
     getHashParams() {
@@ -197,7 +198,8 @@ setName(){
             });
         }
         else{
-            this.setState({currentlyDisplayed: this.state.spotifyGenres})
+            this.setState({searchTerm: "",
+                currentlyDisplayed: this.state.spotifyGenres})
         }
 
     }
@@ -206,6 +208,12 @@ setName(){
         return this.state.currentlyDisplayed.map((genre) => (
             <GenreButton key={genre} onClick={() => this.onSubmit(genre)}>{genre}</GenreButton>
         ))
+    }
+
+    resetButton() {
+        this.setState({searchTerm: "",
+            currentlyDisplayed: this.state.spotifyGenres,
+            genres: []})
     }
 
     render() {
@@ -235,7 +243,7 @@ setName(){
                                 <div class="input-group">
                                     <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
                                     <span class="input-group-btn">
-                                        <Button class = "btn btn-default" bsStyle = "success">Reset </Button>
+                                        <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset </Button>
                                     </span>
                                 </div>
                             </GenreSearchBar> 
