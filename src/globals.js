@@ -6,6 +6,11 @@ export var artist = '';
 export var art = [];
 export var pop = [];
 export var artists = [];
+export var name = "Please Login and generate a song"
+
+export function setName(a){
+    name = "Related Artists to " + a;
+}
 
 export function addArtists(a){
     artists = a;

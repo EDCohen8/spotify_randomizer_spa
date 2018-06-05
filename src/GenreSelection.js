@@ -19,7 +19,7 @@ class GenreSelection extends Component {
         const params = this.getHashParams();
         console.log(cookies);
 
-        if(cookies.get("access_token").length < 10){
+        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10 ){
             let auth_token = params["/genreSelection/access_token"];
             cookies.set("access_token", auth_token, {path: '/'})
             spotifyWeb.setAccessToken(auth_token);
@@ -141,6 +141,7 @@ class GenreSelection extends Component {
             id = artists[emp.id]
             artists[emp.name] = emp.artists;
             artistID = emp.artists[0].id
+            global.setName(emp.artists[0].name)
         }
 
         console.log("id " + id)
@@ -160,7 +161,7 @@ class GenreSelection extends Component {
 
 
     generateSong(){
-        var num = Math.floor((Math.random() * 60) + 1);
+        var num = Math.floor(Math.random() * 60);
         spotifyWeb.getRecommendations(({
             limit: 1,
             market: 'US',
@@ -273,13 +274,13 @@ class GenreSelection extends Component {
                                 <div class="input-group">
                                     <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
                                     <span class="input-group-btn">
-                                        <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset</Button>
                                     </span>
                                 </div>
                             </GenreSearchBar> 
                         </form>
                         <div className="text-center">
                             <Button  bsStyle="success"><a href="http://localhost:3000/#/songPage">Generate Song</a></Button>
+                            <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset Selected Genres</Button>
                         </div>
                     </Jumbotron>  
                 </Col>

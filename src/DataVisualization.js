@@ -27,7 +27,6 @@ class DataVisualization extends Component {
     }
 
     getChartData(){
-        // Ajax calls here
         this.setState({
             chartData:{
                 labels: global.art,
@@ -44,11 +43,6 @@ class DataVisualization extends Component {
                             'rgba(255, 159, 64, 0.6)',
                             'rgba(255, 99, 132, 0.6)'
                         ],
-                        hoverBackgroundColor: [
-                            '#FF6384',
-                            '#36A2EB',
-                            '#FFCE56'
-                        ]
                     }
                 ]
             }
@@ -58,12 +52,11 @@ class DataVisualization extends Component {
     render() {
         return (
             <div className="App">
-                <Chart chartData={this.state.chartData} location="" legendPosition="bottom"/>
 
-                <table border="3" cellPadding="3" align="center">
+                <table border="3" cellPadding="3" align="left">
                     <tr>
-                        <td>Artist link:    |</td>
-                        <td>Popularity:     |</td>
+                        <td>Artist link: (Click me)   |</td>
+                        <td>Popularity:     </td>
                     </tr>
                     <tr>
                         <td><a href={this.state.ids[0]} target="_blank">{this.state.artistNames[0]}</a></td>
@@ -86,6 +79,8 @@ class DataVisualization extends Component {
                         <td>{this.state.popularity[4]}</td>
                     </tr>
                 </table>
+
+                <Chart chartData={this.state.chartData} location={global.name} legendPosition="top"/>
             </div>
         );
     }
