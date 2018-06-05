@@ -15,6 +15,9 @@ class DataVisualization extends Component {
     constructor(){
         super();
         this.state = {
+            artistNames: global.art,
+            popularity: global.pop,
+            ids: global.artists,
             chartData:{}
         }
     }
@@ -56,6 +59,33 @@ class DataVisualization extends Component {
         return (
             <div className="App">
                 <Chart chartData={this.state.chartData} location="" legendPosition="bottom"/>
+
+                <table border="3" cellPadding="3">
+                    <tr>
+                        <td>Artist link:    |</td>
+                        <td>Popularity:     |</td>
+                    </tr>
+                    <tr>
+                        <td><a href={this.state.ids[0]} target="_blank">{this.state.artistNames[0]}</a></td>
+                        <td>{this.state.popularity[0]}</td>
+                    </tr>
+                    <tr>
+                        <td><a href={this.state.ids[1]} target="_blank">{this.state.artistNames[1]}</a></td>
+                        <td>{this.state.popularity[1]}</td>
+                    </tr>
+                    <tr>
+                        <td><a href={this.state.ids[2]} target="_blank">{this.state.artistNames[2]}</a></td>
+                        <td>{this.state.popularity[2]}</td>
+                    </tr>
+                    <tr>
+                        <td><a href={this.state.ids[3]} target="_blank">{this.state.artistNames[3]}</a></td>
+                        <td>{this.state.popularity[3]}</td>
+                    </tr>
+                    <tr>
+                        <td><a href={this.state.ids[4]} target="_blank">{this.state.artistNames[4]}</a></td>
+                        <td>{this.state.popularity[4]}</td>
+                    </tr>
+                </table>
             </div>
         );
     }
