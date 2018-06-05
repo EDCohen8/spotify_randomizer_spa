@@ -42,7 +42,8 @@ class GenreSelection extends Component {
 
         this.getSeeds();
         this.updateGenres = this.updateGenres.bind(this);
-        this.getArt = this.getArt.bind(this);
+        this.generateSong = this.generateSong.bind(this);
+        this.getArtist = this.getArtist.bind(this);
         this.setName = this.setName.bind(this);
         this.resetButton = this.resetButton.bind(this);
     }
@@ -88,7 +89,7 @@ class GenreSelection extends Component {
         this.setState({
             artistNames: art,
             popularity: pop
-        }, () => {console.log(this.state.artistNames + " " + this.state.popularity)});
+        }, () => {console.log(this.state.artistNames)});
         console.log("this state" + this.state)
         global.addArt(art);
         global.addPop(pop);
@@ -125,12 +126,14 @@ class GenreSelection extends Component {
         console.log(this.state.tracks)
         this.setState({
             url: "https://open.spotify.com/embed/track/" + url
-        })
+        }, () => {this.getArtist()});
         global.addTrack(this.state.url)
+        console.log("url: " + this.state.url);
         return url;
     }
 
     getArtist(){
+        console.log(JSON.stringify(this.state.tracks))
         var artists = {}
         var id ='';
         var artistID =''
@@ -142,19 +145,26 @@ class GenreSelection extends Component {
             artists[emp.name] = emp.artists;
             artistID = emp.artists[0].id
             global.setName(emp.artists[0].name)
+            console.log("name: " + JSON.stringify(emp.artists))
         }
 
         console.log("id " + id)
         global.addArtist(artistID)
         spotifyWeb.getArtistRelatedArtists(artistID).then((response) =>
             this.setState({
-                artist: response.artists
-            }));
+                artists: response.artists.slice(0,5),
+                url: "https://open.spotify.com/embed/track/" + id
 
-        console.log(artists)
-        console.log(artistID)
-        console.log('g '+ global.artist)
-        console.log(this.state.artist)
+            }, () => {this.setName()}));
+
+        global.addTrack(this.state.url)
+
+        console.log(this.state.artists)
+
+
+        console.log(this.state.artistNames);
+        console.log('g '+ global.artist);
+
         return id;
 
     }
@@ -170,10 +180,10 @@ class GenreSelection extends Component {
         })).then((response) =>
             this.setState({
                 tracks: response.tracks
-            }));
-        this.getArt();
+            }, () => {this.getArtist()}));
 
-        console.log(this.state.tracks)
+
+        console.log("artist ; " + JSON.stringify(this.state.tracks))
     }
 
 
@@ -188,9 +198,7 @@ class GenreSelection extends Component {
             console.log("Max number of genres chosen")
         }
         console.log(this.state.genres)
-        this.generateSong()
-        this.getSongUrl()
-        this.getArtist()
+        this.generateSong();
         return genre
     }
 
