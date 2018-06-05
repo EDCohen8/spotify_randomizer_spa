@@ -35,10 +35,11 @@ export default class CustomNavbar extends Component{
                     </Navbar.Brand>
                     </Navbar.Header>
                     <Nav >
-                        <NavItem eventKey={1} componentClass={Link} href="/songPage" to="/songPage"><ins> Song</ins> </NavItem>
-                        <NavItem eventKey={2} componentClass={Link} href="/dataVisualization" to="/dataVisualization"><ins> Related Artists</ins> </NavItem>
-                        <NavItem eventKey={3} componentClass={Link} href="/genreSelection" to="/genreSelection"> <ins> Genre Selection</ins> </NavItem>
-                        <NavItem eventKey={4} componentClass={Link} href="/login" to="/login"><ins> Login</ins> </NavItem>
+                        <NavItem eventKey={1} componentClass={Link} href="/login" to="/login"><ins> Login</ins> </NavItem>
+                        <NavItem eventKey={2} componentClass={Link} href="/songPage" to="/songPage"><ins> Song</ins> </NavItem>
+                        <NavItem eventKey={3} componentClass={Link} href="/dataVisualization" to="/dataVisualization"><ins> Related Artists</ins> </NavItem>
+                        <NavItem eventKey={4} componentClass={Link} href="/genreSelection" to="/genreSelection"> <ins> Genre Selection</ins> </NavItem>
+                        
                     </Nav>
             </Navbar>
         </HashRouter>

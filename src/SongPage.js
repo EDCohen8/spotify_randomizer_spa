@@ -5,7 +5,7 @@ import GenreButton from './StyleComponents/GenreButton'
 import GenreSearchBar from './StyleComponents/GenreSearchBar';
 import * as global from './globals';
 
-import {Grid} from "react-bootstrap"
+import {Grid,Jumbotron,Col} from "react-bootstrap"
 
 const spotifyWeb = new Spotify();
 const cookies = new Cookies();
@@ -28,7 +28,17 @@ class SongPage extends Component {
         return (
             <div>
                 <Grid>
-                <p align="center"><iframe src ={this.state.url} width="300" height="380" frameBorder="0"  allow="encrypted-media" name ="spotify">' '</iframe></p>
+                    <Col md={8}>
+                        <Jumbotron>
+                            <h1><strong> Song Page </strong></h1>
+                            <hr className = "my-2"></hr>
+                            <p> The following song was based on the choice of choosing the following genres: </p>
+                            <p> {this.state.genres} </p>
+                        </Jumbotron>
+                    </Col>
+                    <Col md= {4}>
+                        <p align="center"><iframe src ={this.state.url} width="300" height="380" frameBorder="0"  allow="encrypted-media" name ="spotify">' '</iframe></p>
+                    </Col>
                 </Grid>
             </div>
         )
