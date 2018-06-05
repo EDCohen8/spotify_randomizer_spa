@@ -19,7 +19,8 @@ class GenreSelection extends Component {
         const params = this.getHashParams();
         console.log(cookies);
 
-        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10 ){
+        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10 ||
+            params["/genreSelection/access_token"] != cookies.get("access_token")){
             let auth_token = params["/genreSelection/access_token"];
             cookies.set("access_token", auth_token, {path: '/'})
             spotifyWeb.setAccessToken(auth_token);
