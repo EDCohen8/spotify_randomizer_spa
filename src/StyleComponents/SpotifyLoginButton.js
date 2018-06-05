@@ -8,7 +8,7 @@ const SpotifyLoginButton = styled.label`
   box-sizing: content-box;
   padding: 17px 39px 10px 20px;
   font: normal 16px/normal "Courier New", Courier, monospace;
-  color: rgba(15,150,6,1);
+  color: rgba(255, 255, 255, 0.9);
 
 
 `;

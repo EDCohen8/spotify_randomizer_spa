@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button, Grid} from "react-bootstrap"
+import {Grid, Col, Button, Panel} from "react-bootstrap"
 import SpotifyLoginButton from './StyleComponents/SpotifyLoginButton';
 
 class Login extends Component {
@@ -13,9 +13,22 @@ class Login extends Component {
         return (
             <div>
                 <Grid>
-                    <a href ='http://localhost:8888'>
-                        <SpotifyLoginButton>Login With Spotify</SpotifyLoginButton>
-                    </a>
+                    <Col md={7}>
+                        <Panel bsStyle="success">
+                            <Panel.Heading>
+                                <a href ='http://localhost:8888'>
+                                    <Button bsStyle="success"><SpotifyLoginButton>Login With Spotify</SpotifyLoginButton></Button>
+
+                                </a>
+                            </Panel.Heading>
+                            <Panel.Body>
+                                <p>Welcome to Spotify Random Song Generator! <br></br>
+                                    Please click on the sign in button to sign into Spotify!<br></br>
+                                    You will be taken to an external link where you can securely login into you Spotify account.<br></br></p>
+                            </Panel.Body>
+                        </Panel>
+                    </Col>
+
                 </Grid>
             </div>
         );
