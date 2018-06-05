@@ -30,7 +30,6 @@ class Chart extends Component{
     render(){
         return (
             <div className="chart">
-                
                 <Pie
                     data={this.state.chartData}
                     options={{

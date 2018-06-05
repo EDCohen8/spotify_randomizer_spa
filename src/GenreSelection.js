@@ -17,11 +17,16 @@ class GenreSelection extends Component {
     constructor() {
         super()
         const params = this.getHashParams();
-        let auth_token = params["/genreSelection/access_token"];
-        console.log(params);
-        console.log(auth_token);
-        spotifyWeb.setAccessToken(auth_token);
+        console.log(cookies);
 
+        if(cookies.get("access_token").length < 10){
+            let auth_token = params["/genreSelection/access_token"];
+            cookies.set("access_token", auth_token, {path: '/'})
+            spotifyWeb.setAccessToken(auth_token);
+        }
+        else {
+            spotifyWeb.setAccessToken(cookies.get("access_token"));
+        }
         this.state = {
             spotifyGenres: [],
             searchTerm: '',

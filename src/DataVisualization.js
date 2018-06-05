@@ -60,7 +60,7 @@ class DataVisualization extends Component {
             <div className="App">
                 <Chart chartData={this.state.chartData} location="" legendPosition="bottom"/>
 
-                <table border="3" cellPadding="3">
+                <table border="3" cellPadding="3" align="center">
                     <tr>
                         <td>Artist link:    |</td>
                         <td>Popularity:     |</td>
