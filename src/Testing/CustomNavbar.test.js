@@ -12,9 +12,6 @@ describe('NavBar', () => {
         const div = document.createElement('div');
         ReactDOM.render(<CustomNavbar/>, div);
     });
-});
-
-describe("CustomNav mounting", () => {
     const navscreen = shallow(<CustomNavbar/>)
 
       it("4 seperated navigation created", () => {
@@ -26,7 +23,4 @@ describe("CustomNav mounting", () => {
         const divs = navscreen.find(Navbar)
         expect(divs.length).toBe(1);
     });
-
-
-
-      });
+});

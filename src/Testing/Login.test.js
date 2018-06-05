@@ -10,15 +10,11 @@ describe('Login', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Login/>, div);
     });
-});
-
-describe("Login mounting", () => {
-        const loginscreen = shallow(<Login />)
+    const loginscreen = shallow(<Login />)
       it("Contains a login button that directs you to a new page", () => {
           const divs = loginscreen.find('a')
           expect(divs.length).toBe(1);
       });
 
 
-
-      });
+});

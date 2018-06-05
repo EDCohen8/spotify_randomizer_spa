@@ -7,7 +7,6 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-
 describe("DataVisualization mounting", () => {
     const DataScreen = mount(<DataVisualization />)
   it("Page created 5 seperate links", () => {
