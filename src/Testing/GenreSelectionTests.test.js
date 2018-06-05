@@ -21,9 +21,9 @@ describe("GenreSelection mounting", () => {
           expect(divs.length).toBe(1);
       });
 
-      it("Genre buttons work", () => {
+      it("Genre buttons should not be on by default", () => {
         const divs = GenreScreen.find(GenreButton)
-        expect(divs.length).toBeGreaterThan(0);
+        expect(divs.length).toBe(0);
       });
 
 

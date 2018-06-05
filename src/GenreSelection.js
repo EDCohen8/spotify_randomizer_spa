@@ -254,7 +254,7 @@ class GenreSelection extends Component {
                 <Col md={7}>
                 <Panel bsStyle="success">
                     <Panel.Heading>
-                        <h2 class="text-center"><strong> Genre Selection </strong></h2>
+                        <h2 className="text-center"><strong> Genre Selection </strong></h2>
                     </Panel.Heading>   
                     <Panel.Body>             
                         <p>Welcome to the genre selection page of the spotify song picker! <br></br>
@@ -271,16 +271,16 @@ class GenreSelection extends Component {
                         <form>
                             <GenreSearchBar>
                                 Search for a genre or click a button below
-                                <div class="input-group">
-                                    <input class= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
-                                    <span class="input-group-btn">
+                                <div className="input-group">
+                                    <input className= "form-control" type='text' value={this.state.searchTerm} onChange={this.updateGenres}/>
+                                    <span className="input-group-btn">
                                     </span>
                                 </div>
                             </GenreSearchBar> 
                         </form>
                         <div className="text-center">
                             <Button  bsStyle="success"><a href="http://localhost:3000/#/songPage">Generate Song</a></Button>
-                            <Button onClick={this.resetButton} class = "btn btn-default" bsStyle = "success">Reset Selected Genres</Button>
+                            <Button onClick={this.resetButton} className = "btn btn-default" bsStyle = "success">Reset Selected Genres</Button>
                         </div>
                     </Jumbotron>  
                 </Col>
