@@ -20,7 +20,7 @@ class GenreSelection extends Component {
         console.log(cookies);
 
         console.log(" params: " + params["/genreSelection/access_token"]);
-        if(typeof cookies.get("access_token") == "undefined" || cookies.get("access_token").length < 10){
+        if(typeof params["/genreSelection/access_token"] != "undefined"){
             let auth_token = params["/genreSelection/access_token"];
             cookies.set("access_token", auth_token, {path: '/'});
             spotifyWeb.setAccessToken(auth_token);
@@ -114,8 +114,8 @@ class GenreSelection extends Component {
             artists[emp.name] = emp.artists;
             artistID = emp.artists[0].id;
             global.setName(emp.artists[0].name);
-            global.setPopularity(emp.artists.popularity);
-            console.log("name: " + JSON.stringify(emp.artists) + " le " + emp.length)
+            global.setPopularity(emp.popularity);
+            console.log("name: " + JSON.stringify(emp.artists))
         }
 
         console.log("id " + id);
