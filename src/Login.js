@@ -18,7 +18,7 @@ class Login extends Component {
                         <hr className="my-2"></hr>
                         <p>Welcome to Spotify Random Song player! <br></br>
                                     Please click on the sign in below to sign into Spotify!<br></br>
-                                    You will be taken to an external link where you can securely login into you Spotify account.<br></br></p>
+                                    You will be taken to an external link where you can securely login into your Spotify account.<br></br></p>
                                     <a href ='http://localhost:8888'><Button bsStyle="success"><SpotifyLoginButton>Login With Spotify</SpotifyLoginButton></Button></a>
                     </Jumbotron>
                     

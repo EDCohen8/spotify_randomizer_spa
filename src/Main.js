@@ -3,7 +3,8 @@ import {
     Route,
     NavLink,
     HashRouter,
-    Redirect
+    Redirect,
+    Switch
 } from "react-router-dom";
 import DataVisualization from "./DataVisualization";
 import GenreSelection from "./GenreSelection";
@@ -23,7 +24,9 @@ class Main extends Component {
                         <Route path="/dataVisualization" component={DataVisualization}/>
                         <Route path="/genreSelection" component={GenreSelection}/>
                         <Route path="/songPage" component={SongPage}/>
-                        <Redirect from="/" to="login" />
+                        <Switch>
+                            <Redirect exact path from="/" to="login" />
+                        </Switch>
                     </div>
                 </div>
             </HashRouter>
