@@ -247,8 +247,8 @@ class GenreSelection extends Component {
     displayGenres() {
         var a = ""
         var i = 0;
-        for (i = 0; i < this.state.genres.length; i++) {
-         a += this.state.genres[i] + " "
+        for (i = 0; i < global.genres.length; i++) {
+         a += global.genres[i] + " "
         }
         return a
     }
@@ -265,7 +265,7 @@ class GenreSelection extends Component {
                         <h2 className="text-center"><strong> Genre Selection </strong></h2>
                     </Panel.Heading>   
                     <Panel.Body>             
-                        <p>Welcome to the genre selection page of the spotify song picker! <br></br>
+                        <p>Welcome to the genre selection page of the Spotify song picker! <br></br>
                         Below are a list of the many genres that are available for our generator.<br></br><br></br>
                             Select up to 5 genres!<br></br>
                             Selected genres: {this.displayGenres()}<br></br>
