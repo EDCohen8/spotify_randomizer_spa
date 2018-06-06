@@ -27,7 +27,7 @@ This will install all dependecies in our package.json
 ## `dependencies`
 If all dependencies are not downloaded run:
 
-npm install bootstrap chart.js cookie-parser express react-bootstrap react-chartjs-2 react-cookie react-search-bar spotify-web-api-js styled-components universal-cookie -- save
+npm install bootstrap chart.js cookie-parser express react-bootstrap react-chartjs-2 react-cookie react-search-bar spotify-web-api-js styled-components universal-cookie babel-plugin-transform-class-properties -- save
 
 cd into the authorization_code folder and run:
 
