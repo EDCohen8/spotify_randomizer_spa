@@ -61,21 +61,6 @@ class GenreSelection extends Component {
         return hashParams;
     }
 
-    //getting similar artists
-    getArt(){
-        spotifyWeb.getArtistRelatedArtists(global.artist).then((response) =>
-            this.setState({
-                artists: response.artists.slice(0,5)
-
-            }, () => {this.setName()}));
-
-        console.log(this.state.artists)
-
-
-        console.log(this.state.artistNames);
-        console.log('g '+ global.artist);
-
-    }
     //parsing the artists from getArt and getting the artist names and IDs
     setName(){
         var art = [];
@@ -114,24 +99,7 @@ class GenreSelection extends Component {
     }
 
     //getting the id of the artist and setting the url
-    getSongUrl(){
-        var song = {}
-        var url =''
-        for (var i = 0, emp; i < this.state.tracks.length; i++) {
-            emp = this.state.tracks[i];
-            song[ emp.id] = emp.id;
-            url = song[emp.id]
-        }
-
-        console.log("url " + url)
-        console.log(this.state.tracks)
-        this.setState({
-            url: "https://open.spotify.com/embed/track/" + url
-        }, () => {this.getArtist()});
-        global.addTrack(this.state.url)
-        console.log("url: " + this.state.url);
-        return url;
-    }
+    //then generating similar artists
 
     getArtist(){
         console.log(JSON.stringify(this.state.tracks))
@@ -149,16 +117,18 @@ class GenreSelection extends Component {
             console.log("name: " + JSON.stringify(emp.artists))
         }
 
-        console.log("id " + id)
-        global.addArtist(artistID)
+        console.log("id " + id);
+        global.addArtist(artistID);
+        var url = "https://open.spotify.com/embed/track/" + id;
+        global.addTrack(url)
+        this.setState({
+            url: url
+        }, () =>
         spotifyWeb.getArtistRelatedArtists(artistID).then((response) =>
             this.setState({
-                artists: response.artists.slice(0,5),
-                url: "https://open.spotify.com/embed/track/" + id
+                artists: response.artists.slice(0,5)
+            }, () => {this.setName()})));
 
-            }, () => {this.setName()}));
-
-        global.addTrack(this.state.url)
 
         console.log(this.state.artists)
 
