@@ -37,6 +37,7 @@ class SongPage extends Component {
                         </Jumbotron>
                     </Col>
                     <Col md= {4}>
+                        <header>Popularity: {global.popularity}</header>
                         <p align="center"><iframe src ={this.state.url} width="300" height="380" frameBorder="0"  allow="encrypted-media" name ="spotify">' '</iframe></p>
                     </Col>
                 </Grid>

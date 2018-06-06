@@ -110,11 +110,12 @@ class GenreSelection extends Component {
         for (var i = 0, emp; i < this.state.tracks.length; i++) {
             emp = this.state.tracks[i];
             artists[ emp.id] = emp.id;
-            id = artists[emp.id]
+            id = artists[emp.id];
             artists[emp.name] = emp.artists;
-            artistID = emp.artists[0].id
-            global.setName(emp.artists[0].name)
-            console.log("name: " + JSON.stringify(emp.artists))
+            artistID = emp.artists[0].id;
+            global.setName(emp.artists[0].name);
+            global.setPopularity(emp.artists.popularity);
+            console.log("name: " + JSON.stringify(emp.artists) + " le " + emp.length)
         }
 
         console.log("id " + id);
@@ -142,7 +143,7 @@ class GenreSelection extends Component {
 
 
     generateSong(){
-        var num = Math.floor((Math.random() * 23) + Math.random() *17);
+        var num = Math.floor((Math.random() * 40));
         spotifyWeb.getRecommendations(({
             limit: 1,
             market: 'US',
