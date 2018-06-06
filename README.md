@@ -24,18 +24,17 @@ Clone the repository and perform the following:
 
 This will install all dependecies in our package.json
 
+## `dependencies`
 If all dependencies are not downloaded run:
 
-### `npm install bootstrap chart.js cookie-parser express react-bootstrap 
-react-chartjs-2 react-cookie react-search-bar spotify-web-api-js 
-styled-components universal-cookie -- save`
+npm install bootstrap chart.js cookie-parser express react-bootstrap react-chartjs-2 react-cookie react-search-bar spotify-web-api-js styled-components universal-cookie -- save
 
 cd into the authorization_code folder and run:
 
 ### `node app.js`     
 
-This is the service to login to Spotify
-It will on localhost:8888
+This is the service to login to Spotify<br>
+It will on localhost:8888 <br>
 In another tab run:
 
 ### `npm start`
