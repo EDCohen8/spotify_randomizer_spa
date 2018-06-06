@@ -144,6 +144,7 @@ class GenreSelection extends Component {
 
     generateSong(){
         var num = Math.floor((Math.random() * 40));
+        console.log("number: " + num)
         spotifyWeb.getRecommendations(({
             limit: 1,
             market: 'US',

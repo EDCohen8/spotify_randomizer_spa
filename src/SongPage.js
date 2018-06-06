@@ -32,7 +32,7 @@ class SongPage extends Component {
                         <Jumbotron>
                             <h1><strong> Song Page </strong></h1>
                             <hr className = "my-2"></hr>
-                            <p> The following song was based on the choice of choosing the following genres: </p>
+                            <p> The following song was generated using the following genres: </p>
                             <p> {this.state.genres} </p>
                         </Jumbotron>
                     </Col>
